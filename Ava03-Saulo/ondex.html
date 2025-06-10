@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <title>Steam2</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      background: #f0f0f5;
+    }
+
+    nav {
+      background-color: black;
+      padding: 10px 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+    }
+
+    nav img.logo {
+      height: 50px;
+    }
+
+    .nav-buttons {
+      position: absolute;
+      right: 20px;
+      display: flex;
+      gap: 10px;
+    }
+
+    .nav-buttons button {
+      background: #444;
+      border: none;
+      color: white;
+      padding: 8px 16px;
+      cursor: pointer;
+    }
+
+    .nav-buttons button:hover {
+      background: red;
+    }
+
+    section {
+      display: none;
+      padding: 20px;
+      max-width: 900px;
+      margin: auto;
+      background: white;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      margin-top: 20px;
+      border-radius: 10px;
+    }
+
+    section.active {
+      display: block;
+    }
+
+    h2 {
+      color: #333;
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+    }
+
+    input {
+      padding: 10px;
+      margin: 10px 0;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+    }
+
+    .product-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 20px;
+    }
+
+    .product {
+      padding: 10px;
+      background: #fff;
+      border: 1px solid #ddd;
+      border-radius: 10px;
+      text-align: center;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    }
+
+    .product img {
+      width: 100%;
+      height: auto;
+      border-radius: 10px;
+    }
+
+    .product h4 {
+      margin: 10px 0 5px;
+    }
+
+    .product p {
+      font-weight: bold;
+      color: #444;
+    }
+
+    .subsection {
+      margin-top: 30px;
+      border-top: 1px solid #ddd;
+      padding-top: 20px;
+    }
+
+    .subsection p {
+      font-style: italic;
+      color: #666;
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <img src="steam22.png" alt="Logo Steam2" class="logo">
+    <div class="nav-buttons">
+      <button onclick="showSection('login')">Login / Cadastro</button>
+      <button onclick="showSection('produtos')">Produtos</button>
+    </div>
+  </nav>
+
+  <section id="login" class="active">
+    <h2>Login</h2>
+    <form>
+      <input type="email" placeholder="Email" required>
+      <input type="password" placeholder="Senha" required>
+      <input type="submit" value="Entrar">
+    </form>
+
+    <div class="subsection">
+      <p><strong>Ainda não está cadastrado?</strong> Cadastre-se abaixo:</p>
+      <form>
+        <input type="text" placeholder="Nome Completo" required>
+        <input type="email" placeholder="Email" required>
+        <input type="password" placeholder="Senha" required>
+        <input type="submit" value="Cadastrar">
+      </form>
+    </div>
+  </section>
+
+  <section id="produtos">
+    <h2>Menu de Produtos - Jogos</h2>
+    <div class="product-grid">
+      <div class="product">
+        <img src="borderlands.jpg" alt="Borderlands 2">
+        <h4>Borderlands 2</h4>
+        <p>R$ 49,90</p>
+      </div>
+      <div class="product">
+        <img src="darksouls.png" alt="Dark Souls">
+        <h4>Dark Souls</h4>
+        <p>R$ 89,90</p>
+      </div>
+      <div class="product">
+        <img src="fear.jpg" alt="F.E.A.R.">
+        <h4>F.E.A.R.</h4>
+        <p>R$ 29,90</p>
+      </div>
+      <div class="product">
+        <img src="tombraider.jpg" alt="Tomb Raider">
+        <h4>Tomb Raider</h4>
+        <p>R$ 59,90</p>
+      </div>
+    </div>
+  </section>
+
+  <script>
+    function showSection(id) {
+      document.querySelectorAll('section').forEach(sec => sec.classList.remove('active'));
+      document.getElementById(id).classList.add('active');
+    }
+  </script>
+
+</body>
+</html>
